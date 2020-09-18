@@ -1,0 +1,30 @@
+package ibm.com.test;
+
+public class InstanceCounter {
+	//静态变量
+	   private static int numInstances = 0;
+	   //静态方法
+	   protected static int getCount() {
+	      return numInstances;
+	   }
+	 
+	   private static void addInstance() {
+	      numInstances++;
+	   }
+	 
+	   InstanceCounter() {
+	      InstanceCounter.addInstance();
+	   }
+	 
+	   public static void main(String[] arguments) {
+		      System.out.println("Starting with " +
+		      InstanceCounter.getCount() + " instances");
+		      for (int i = 0; i < 500; ++i){
+		         new InstanceCounter();
+		          }
+		      System.out.println("Created " +
+		      InstanceCounter.getCount() + " instances");
+		   }
+
+
+}
