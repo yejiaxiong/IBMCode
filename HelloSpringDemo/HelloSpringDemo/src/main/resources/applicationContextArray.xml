@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="addr" class="com.ibm.po.Address">
+     <property name="address" value="广东"/>
+ </bean>
+   <bean id="student" class="com.ibm.po.Student">
+     <property name="name" value="小明"/>
+     <property name="address" ref="addr"/>
+     <property name="books">
+         <array>
+             <value>西游记</value>
+             <value>红楼梦</value>
+             <value>水浒传</value>
+         </array>
+     </property>
+ </bean>
+</beans>

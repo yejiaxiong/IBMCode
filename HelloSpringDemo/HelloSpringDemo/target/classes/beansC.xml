@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:c="http://www.springframework.org/schema/c"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans  
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!--P(属性: properties)命名空间 , 直接注入属性-->
+ <!--C(构造: Constructor)命名空间 , 使用构造器注入-->
+ <bean id="user" class="com.ibm.po.UserC" c:name="CC" c:age="18"/>
+</beans>

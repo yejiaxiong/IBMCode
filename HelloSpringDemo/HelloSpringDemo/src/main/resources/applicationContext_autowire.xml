@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+    <bean id="address"
+          class="com.ibm.po.autowire.Address"
+          p:city="ShenZhen" p:street="NanHai"/>
+          
+    <!-- <bean id="address2"
+          class="com.ibm.po.autowire.Address"
+          p:city="ShenZhen" p:street="NanShan"/> -->
+    <bean id="car"
+          class="com.ibm.po.autowire.Car"
+          p:brand="Audi" p:price="300000"/>
+    <!-- 可以使用autowire属性指定自动装配的方式，byname根据bean的名字和当前bean的setter风格属性名进行自动装配 -->
+    <bean id="person"
+          class="com.ibm.po.autowire.Person"
+          p:name="John" autowire="byName"/>
+
+
+    <!-- 可以使用autowire属性指定自动装配的方式，
+     byType根据bean的类型和当前bean的属性的类型进行自动装配。-->
+    <bean id="person2"
+          class="com.ibm.po.autowire.Person"
+          p:name="Tom" autowire="byType"/>
+
+
+</beans>

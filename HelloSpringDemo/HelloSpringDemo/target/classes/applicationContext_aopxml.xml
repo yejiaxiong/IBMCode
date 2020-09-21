@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+    <bean id="calculator" class="com.ibm.po.aopxml.CalculatorImp2"></bean>
+    <bean id="loggerAspect" class="com.ibm.po.aopxml.LoggerAspect2"></bean>
+    <bean id="aroundAspect" class="com.ibm.po.aopxml.AroundAspect2"></bean>
+
+    <!-- AOP配置 -->
+    <aop:config>
+        <!-- 配置切点表达式 类似注解的重用表达式-->
+        <aop:pointcut expression="execution(* com.ibm.po.aopxml.CalculatorImp2.*(..))"
+                      id="pointcut"/>
+        <!-- 配置切面及通知  method的值就是 loggerAspect类中的值-->
+        <aop:aspect ref="loggerAspect" order="2">
+            <aop:before method="beforeAdvice" pointcut-ref="pointcut"/>
+            <aop:after method="afterAdvice" pointcut-ref="pointcut"/>
+            <aop:after-returning method="afterRunningAdvice" pointcut-ref="pointcut" returning="result"/>
+            <aop:after-throwing method="afterThrowingAdvice" pointcut-ref="pointcut" throwing="exception"/>
+        </aop:aspect>
+        <aop:aspect ref="aroundAspect" order="1">
+            <aop:around method="aroundAdvice" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

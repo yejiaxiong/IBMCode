@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!--bean就是java对象 , 由Spring创建和管理-->
+   <bean id="addr" class="com.ibm.po.Address">
+     <property name="address" value="广东"/>
+ </bean>
+ 
+ <bean id="student" class="com.ibm.po.Student">
+     <property name="name" value="小明"/>
+     <property name="address" ref="addr"/>
+ </bean>
+</beans>
