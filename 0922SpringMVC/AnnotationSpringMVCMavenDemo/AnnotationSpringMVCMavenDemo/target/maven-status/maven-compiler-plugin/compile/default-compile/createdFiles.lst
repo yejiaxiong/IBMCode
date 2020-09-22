@@ -1,0 +1,4 @@
+com\ibm\config\SpringMVCConfig.class
+com\ibm\controller\TestController.class
+com\ibm\config\MyWebApplicationInitializer.class
+com\ibm\config\ProductConfig.class
